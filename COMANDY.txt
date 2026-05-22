@@ -1,2 +1,86 @@
 гитхаб - мой аккаунт через гугл
 логин Intra-git 
+1.
+создаем новый репозиторий - славй сверху зеленая кнопка создать репозиторий
+создали 
+далее мы берем юрл - как его найти - пока не очень понятно  скомбинировала то что видно в строке адреса 
+страницы и того что показывает автор курса
+далее 
+git remote add origin https://github.com/Intra-git/first_project.git
+это мы подсоединили наш репозиторий
+ git push -u origin  master
+тут потребуется токен
+идем на гитхаб и создаем его по ссылке https://github.com/settings/keys убедись что уже перед этим зашла в 
+свой аккаунт
+ после прочтения инструкции ниже
+ 
+Вот краткий и понятный конспект по настройке Git и подключению к GitHub (включая SSH), с акцентом на ваш 
+случай (Intra-git):
+
+📌 Конспект: Настройка Git + Подключение к GitHub (SSH)
+(Для Windows/Linux, шаги для Mac аналогичны)
+
+⚙️ 1. Установка и настройка Git на компьютере
+Установите Git:
+Windows: Скачайте с git-scm.com, установите с настройками по умолчанию.
+Linux (Ubuntu/Debian):
+sudo apt update && sudo apt install git -y
+Настройте имя и email (важно!):
+git config --global user.name "Ваше Имя Фамилия"
+git config --global user.email "ваш.email@example.com"
+(Проверьте настройки: git config --list) это мы делаем в любой рабочей папке
+
+🔑 2. Настройка SSH-ключа для GitHub
+Сгенерируйте ключ (если его нет):
+ssh-keygen -t ed25519 -C "ваш.email@example.com"
+(Нажмите Enter 3 раза, чтобы сохранить по умолчанию в ~/.ssh/id_ed25519).
+Добавьте ключ на GitHub:
+Скопируйте публичный ключ: открываем файл из терминала 
+
+cat ~/.ssh/id_ed25519.pub
+(Выделите и скопируйте всю строку, начиная с ssh-ed25519).
+
+Зайдите на GitHub → Настройки → SSH и GPG keys → New SSH Key → Вставьте скопированный ключ + название (например, "Laptop SSH Key").
+
+Проверьте подключение к GitHub:
+ssh -T git@github.com
+(Ожидаемый ответ: Hi Intra-git! You've successfully authenticated...)
+
+📂 3. Создание локального репозитория и подключение к GitHub
+Создайте папку + инициализируйте Git:
+mkdir first_project && cd first_project те создали папку и перешли в нее!!!!
+git init
+Создайте файл (например, README.md) и добавьте его в репозиторий:
+echo "# Моя первая программа" > README.md
+git add README.md
+git commit -m "Добавлен README"
+🔗 4. Подключение к удалённому репозиторию Intra-git/first_project  
+Свяжите локальный репозиторий с удалённым по SSH:
+git remote add origin git@github.com:Intra-git/first_project.git
+(Если репозиторий уже существует, замените add на set-url)
+
+git remote set-url origin git@github.com:Intra-git/first_project.git
+Проверьте URL:
+git remote -v
+(Ожидаемый вывод: origin git@github.com:Intra-git/first_project.git)
+
+🚀 5. Отправка изменений на GitHub
+git push -u origin master
+(Если ветка называется main, замените master на main)
+
+⚠️ Возможные ошибки и решения
+Ошибка	Решение
+Permission denied (publickey)	Проверьте SSH-ключ (ssh -T git@github.com) и добавьте его на GitHub.
+X11 forwarding request failed	Игнорируйте, это не критично (от SSH, не влияет на работу).
+Repository not found	Убедитесь, что название репозитория верное (Intra-git/first_project).
+📌 Итоговый чек-лист
+Git установлен и настроен (user.name, user.email).
+SSH-ключ сгенерирован и добавлен на GitHub.
+Локальный репозиторий инициализирован (git init).
+Удалённый репозиторий подключён по SSH (git remote set-url).
+Изменения отправлены на GitHub (git push).
+Готово! 🎉 Теперь вы можете:
+
+Создавать новые файлы → git add → git commit → git push.
+Обновлять репозиторий → git pull.
+
