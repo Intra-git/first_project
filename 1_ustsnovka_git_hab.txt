@@ -1,5 +1,10 @@
 гитхаб - мой аккаунт через гугл
 логин Intra-git 
+мой публичный ключ 
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHoW1eb4bjEXx/ZdBsehFsUs9J0VLySRAiX1LyR3Y528 i89262180399@gmail.com
+
+
+
 1.
 создаем новый репозиторий - слева сверху зеленая кнопка создать репозиторий
 создали 
@@ -12,6 +17,9 @@ git remote add origin https://github.com/Intra-git/first_project.git
 далее  
 git push -u origin  master
 тут потребуется токен
+Лаптоп Rosa 2021
+SHA256:GzngSn/Y/9iwqY6vnA0+7iAmzzqKpehvJGx/z/+lMYo
+
 идем на гитхаб и создаем его по ссылке https://github.com/settings/keys убедись что уже перед этим зашла в 
 свой аккаунт
  после прочтения инструкции ниже
